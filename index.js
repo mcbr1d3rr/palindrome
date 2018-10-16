@@ -1,6 +1,7 @@
-// palindrome.js
+// index.js (from palindrome.js)
+// repos/palindrome/index.js
 
-// description: add reverses to String properties
+// description: add reverse to all string
 // return: reversed string
 // Reverses a string.
 String.prototype.reverse = function ()
@@ -29,25 +30,3 @@ function Phrase(content)
     return this.processedContent() === this.processedContent().reverse();
   }
 }
-
-/* removed as not needed for palindrome
-// fn TranslatedPhrase()
-// description: Defines a TranslatedPhrase object.
-// input: content
-// input: translation
-// returns: True if translation is palindrome, else false
-function TranslatedPhrase(content, translation)
-{
-  this.content = content;
-  this.translation = translation;
-
-    // Returns translation processed for palindrome testing.
-  this.processedContent = function processedContent()
-  {
-    return this.translation.toLowerCase();
-  }
-}
-
-// translatedPhrase now inherits all methods of Phrase instance.
-TranslatedPhrase.prototype = new Phrase();
-*/
