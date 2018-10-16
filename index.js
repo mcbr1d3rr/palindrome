@@ -1,6 +1,10 @@
-// palindrome.js
+// index.js (from palindrome.js)
+// repos/palindrome/index.js
 
-// description: add reverses to String properties
+// export so Phrase can be used by other files
+module.exports = Phrase;
+
+// description: add reverse to all string
 // return: reversed string
 // Reverses a string.
 String.prototype.reverse = function ()
@@ -20,7 +24,37 @@ function Phrase(content)
   // Returns content processed for palindrome testing.
   this.processedContent = function processedContent()
   {
-    return this.content.toLowerCase();
+    return this.letters().toLowerCase();
+  }
+
+  // Returns the letters in the content, using .forEach to replace for loop method.
+  // For example:
+  //   new Phrase("Hello, world!").letters() === "Helloworld"
+/*  this.letters = function letters()
+  {
+    let theLetters = [];
+    const letterRegex = /[a-z]/i;
+    Array.from(this.content).forEach(function(character)
+    {
+      if (character.match(letterRegex))
+      {
+        theLetters.push(character);
+      }
+    });
+    return theLetters.join("");
+  }
+*/
+/*
+  // or we could replace above to return the letters in the content, using .filter & .match /i
+  this.letters = function letters()
+  {
+    return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
+  }
+*/
+  // or we could replace above to return the letters in the content, using .match .gi
+  this.letters = function letters()
+  {
+    return (this.content.match(/[a-z]/gi) || []).join("");
   }
 
   // Returns true if the phrase is a palindrome, false otherwise.
@@ -29,25 +63,3 @@ function Phrase(content)
     return this.processedContent() === this.processedContent().reverse();
   }
 }
-
-/* removed as not needed for palindrome
-// fn TranslatedPhrase()
-// description: Defines a TranslatedPhrase object.
-// input: content
-// input: translation
-// returns: True if translation is palindrome, else false
-function TranslatedPhrase(content, translation)
-{
-  this.content = content;
-  this.translation = translation;
-
-    // Returns translation processed for palindrome testing.
-  this.processedContent = function processedContent()
-  {
-    return this.translation.toLowerCase();
-  }
-}
-
-// translatedPhrase now inherits all methods of Phrase instance.
-TranslatedPhrase.prototype = new Phrase();
-*/
