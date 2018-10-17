@@ -1,6 +1,7 @@
 // index.js (from palindrome.js)
 // repos/palindrome/index.js
 
+// export so Phrase can be used by other files
 module.exports = Phrase;
 
 // description: add reverse to all string
@@ -26,10 +27,10 @@ function Phrase(content)
     return this.letters().toLowerCase();
   }
 
-/*
-  // Returns the letters in the content.
+  // Returns the letters in the content, using for loop
   // For example:
   //   new Phrase("Hello, world!").letters() === "Helloworld"
+/*
   this.letters = function letters()
   {
     let theLetters = [];
@@ -44,7 +45,7 @@ function Phrase(content)
   }
 */
 /*
-  // or this .forEach
+  // or this .using .forEach to replace for loop method.
   this.letters = function letters()
   {
     let theLetters = [];
@@ -60,13 +61,13 @@ function Phrase(content)
   }
 */
 /*
-  // or this . filter & .match
+  // or we could replace above to return the letters in the content, using .filter & .match /i
   this.letters = function letters()
   {
     return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
   }
 */
-  // or this, .match
+  // or we could replace above to return the letters in the content, using .match .gi
   this.letters = function letters()
   {
     return (this.content.match(/[a-z]/gi) || []).join("");
