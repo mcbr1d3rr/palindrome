@@ -80,8 +80,6 @@ function Phrase(content)
   // Returns true if the letter phrase is a palindrome, false otherwise.
   this.palindrome = function palindrome()
   {
-    console.log("original processed string", this.processedContent());
-    console.log("reversed processed string", this.processedContent().reverse());
     if(this.processedContent().length == 0)
     {
       return false;
@@ -90,6 +88,5 @@ function Phrase(content)
     {
       return this.processedContent() === this.processedContent().reverse();
     }
-
   }
 }
