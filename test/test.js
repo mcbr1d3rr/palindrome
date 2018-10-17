@@ -3,6 +3,7 @@ let Phrase = require("../index.js");
 
 describe("Phrase", function()
 {
+
   describe("#palindrome", function()
   {
 
@@ -20,8 +21,8 @@ describe("Phrase", function()
 
     it("should return true for a mixed-case palindrome", function()
     {
-      let mixedCase = new Phrase("RaceCar");
-      assert(mixedCase.palindrome());
+      let mixedCasePalindrome = new Phrase("RaceCar");
+      assert(mixedCasePalindrome.palindrome());
     });
 
     it("should return true for a palindrome with punctuation", function()
