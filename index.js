@@ -13,10 +13,10 @@ String.prototype.reverse = function ()
 }
 
 // fn Phrase()
-// description: defines a palindrome Phrase object,
+// description: defines a letter palindrome Phrase object,
 // includes palindrome function into the Phrase object as a method
 // input: content
-// returns: True if palindrome, else false
+// returns: True if letter palindrome, else false
 function Phrase(content)
 {
   this.content = content;
@@ -67,15 +67,29 @@ function Phrase(content)
     return Array.from(this.content).filter(c => c.match(/[a-z]/i)).join("");
   }
 */
+
+  // Returns the letters in the content, using for loop
+  // For example:
+  //   new Phrase("Hello, world!").letters() === "Helloworld"
   // or we could replace above to return the letters in the content, using .match .gi
   this.letters = function letters()
   {
     return (this.content.match(/[a-z]/gi) || []).join("");
   }
 
-  // Returns true if the phrase is a palindrome, false otherwise.
+  // Returns true if the letter phrase is a palindrome, false otherwise.
   this.palindrome = function palindrome()
   {
-    return this.processedContent() === this.processedContent().reverse();
+    console.log("original processed string", this.processedContent());
+    console.log("reversed processed string", this.processedContent().reverse());
+    if(this.processedContent().length == 0)
+    {
+      return false;
+    }
+    else
+    {
+      return this.processedContent() === this.processedContent().reverse();
+    }
+
   }
 }

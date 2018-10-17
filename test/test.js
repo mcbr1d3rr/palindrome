@@ -30,6 +30,13 @@ describe("Phrase", function()
       let punctuatedPalindrome = new Phrase("Madam, I'm Adam.");
       assert(punctuatedPalindrome.palindrome());
     });
+
+    it("should return false for a palindrome with only numbers", function()
+    {
+      let numberedNonPalindrome = new Phrase("1234.56");
+      assert(!numberedNonPalindrome.palindrome());
+    });
+
   });
 
   describe("#letters", function()
